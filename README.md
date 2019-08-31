@@ -12,26 +12,27 @@
 This project focuses on applying data engineering skills to analyze disaster data from Figure Eight to build a model for an API that classifies disaster messages. The model is used to categorize disaster events, so messages can be sent to an appropriate disaster relief agency. The project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data. 
 
 ## File Descriptions <a name="files"></a>
+```
 
-There are three main files, that are needed to complete for this project:
+- app
+| - template
+| |- master.html  # main page of web app
+| |- go.html  # classification result page of web app
+|- run.py  # Flask file that runs app
 
-### **1. process_data.py**, which Includes data cleaning pipeline that
+- data
+|- disaster_categories.csv  # data to process 
+|- disaster_messages.csv  # data to process
+|- process_data.py # The script takes the file paths of the two datasets and database, cleans the datasets, and stores the clean data into a SQLite database in the specified database file path.
+|- InsertDatabaseName.db   # database to save clean data to
 
- - Loads the messages and categories datasets
- - Merges the two datasets
- - Cleans the data
- - Stores it in a SQLite database
- 
- ### **2.train_classifier.py**, which includes machine learning pipeline that
- 
- - Loads data from the SQLite database
- - Splits the dataset into training and test sets
- - Builds a text processing and machine learning pipeline
- - Trains and tunes a model using GridSearchCV
- - Outputs results on the test set
- - Exports the final model as a pickle file
- 
- ### **3.run.py**, web app that uses the trained model to input text and return classification results.
+- models
+|- train_classifier.py #he script takes the database file path and model file path, creates and trains a classifier, and stores the classifier into a pickle file to the specified model file path
+|- classifier.pkl  # saved model 
+
+- README.md
+
+```
 
 ## Required Libraries <a name="libraries"></a>
 
