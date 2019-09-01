@@ -46,7 +46,7 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
-   '''Stores the clean data into a SQLite database in the specified database file path.'''
+    '''Stores the clean data into a SQLite database in the specified database file path.'''
     engine = create_engine('sqlite:///'+database_filename)
     df.to_sql('Messages', engine, index=False)
 
