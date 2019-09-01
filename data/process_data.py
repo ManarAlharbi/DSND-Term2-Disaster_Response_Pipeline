@@ -5,24 +5,33 @@ import numpy as np
 from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
-    '''
-    INPUT:
-    messages_filepath - (csv file) messages dataset
-    categories_filepath - (csv file) categories dataset
+    """Load disaster messages and categories datasets and merge them into one datasets.
     
-    OUTPUT:
-    df - (dataframe) combined dataset
-    
-    Description:
-    1. load messages and categories dataset
-    2. Merge the messages and categories datasets using the common id
-     '''
+    Args:
+        messages_filepath (str): path of messages csv file.
+        categories_filepath (str): path of categories csv file.
+        
+    Returns:
+       df (DataFrame):  combined messages and categories dataframes into one datframe using the common id
+    """
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     df = pd.merge(messages, categories, left_on='id',right_on='id',how='outer')
     return df
 
 def clean_data(df):
+    """ Cleans dataframe 
+    
+    Splits the categories column into separate, clearly named columns, 
+    converts values to binary, 
+    and drops duplicates.
+    
+    Args:
+        df (DataFrame): combined messages and categories dataframe
+        
+    Returns:
+       df (DataFrame): clean dataframe
+    """
     categories = df.categories.str.split(';', expand=True)
     row = categories.loc[0]
     category_colnames = row.apply(lambda x: x[:-2]).values.tolist()
@@ -36,8 +45,8 @@ def clean_data(df):
     df.drop_duplicates(subset='id', inplace=True)
     return df
 
-
 def save_data(df, database_filename):
+   '''Stores the clean data into a SQLite database in the specified database file path.'''
     engine = create_engine('sqlite:///'+database_filename)
     df.to_sql('Messages', engine, index=False)
 
