@@ -36,9 +36,9 @@ This project focuses on applying data engineering skills to analyze disaster dat
 
 ## Required Libraries <a name="libraries"></a>
 
- - Machine Learning Libraries: Pandas, NumPy, Sciki-Learn
+ - Machine Learning Libraries: Pandas, NumPy, Scikit-Learn
  - Natural Language Process Libraries: NLTK
- - SQLlite Database Libraqries: SQLalchemy
+ - SQLite Database Libraqries: SQLalchemy
  - Web App libraries: Flask
  - Visualization libraries: Plotly
 
