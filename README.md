@@ -9,7 +9,7 @@
 
 ## Project Motivation <a name="motivation"></a>
 
-This project focuses on applying data engineering skills to analyze disaster data from Figure Eight to build a model for an API that classifies disaster messages. The model is used to categorize disaster events, so messages can be sent to an appropriate disaster relief agency. The project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data. 
+This project focuses on applying data engineering skills to analyze disaster data from [Figure Eight](https://www.figure-eight.com/) to build a model for an application program interface (API) that classifies disaster messages. The model is used to categorize disaster events, so messages can be sent to an appropriate disaster relief agency. The project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data. 
 
 ## File Descriptions <a name="files"></a>
 ```
